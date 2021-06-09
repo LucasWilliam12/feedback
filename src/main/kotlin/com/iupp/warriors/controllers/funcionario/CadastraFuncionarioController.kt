@@ -1,7 +1,7 @@
 package com.iupp.warriors.controllers.funcionario
 
 import com.iupp.warriors.dtos.requests.FuncionarioRequest
-import com.iupp.warriors.repositories.FuncionarioRepository
+import com.iupp.warriors.services.FuncionarioService
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
@@ -20,15 +20,15 @@ class CadastraFuncionarioController {
     val logger = LoggerFactory.getLogger(CadastraFuncionarioController::class.java)
 
     @Inject
-    lateinit var funcionarioRepository: FuncionarioRepository
+    lateinit var funcionarioService: FuncionarioService
 
     @Post
     @Transactional
     fun cadastrar(@Valid @Body request: FuncionarioRequest): HttpResponse<Any>{
 
         logger.info("Salvando o funcionario:")
-        val funcionario = request.toModel()
-        funcionarioRepository.save(funcionario)
+        var funcionario = request.toModel()
+        funcionario = funcionarioService.cadastrar(funcionario)
 
         val uri = UriBuilder.of("/funcionarios/{id}")
             .expand(mutableMapOf(Pair("id", funcionario.id)))

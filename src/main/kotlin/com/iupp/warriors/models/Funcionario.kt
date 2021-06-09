@@ -17,18 +17,24 @@ import javax.validation.constraints.NotNull
 data class Funcionario(
     @field:NotNull
     @field:NotBlank
-    val nome: String,
+    var nome: String,
     @field:NotNull
     @field:NotBlank
     @field:Email
-    val email: String,
+    var email: String,
     @field:NotNull
     @field:NotBlank
     @field:CPF
-    val cpf: String,
+    var cpf: String,
     @field:NotNull
-    val cargo: TipoCargo
+    var cargo: TipoCargo
 ){
+    fun atualiza(request: Funcionario) {
+        this.nome = request.nome
+        this.email = request.email
+        this.cpf = request.cpf
+        this.cargo = request.cargo
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
