@@ -32,5 +32,6 @@ internal class CadastraFeedbackControllerTest(
                 result.status shouldBe HttpStatus.CREATED
             }
         }
+
     }
 })

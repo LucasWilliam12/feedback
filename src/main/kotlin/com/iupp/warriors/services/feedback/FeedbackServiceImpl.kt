@@ -19,7 +19,6 @@ class FeedbackServiceImpl(
 
     @Transactional
     override fun cadastrar(@Valid request: Feedback): Feedback {
-        println(request.avaliador.cargo.permitido())
         if(request.avaliador.cargo.permitido()){
             return feedbackRepository.save(request)
         }else{

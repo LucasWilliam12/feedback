@@ -86,16 +86,16 @@ internal class FuncionarioServiceTest(
 
         `when`("passando um id de funcionario inexistente para ser atualizado") {
             val response = shouldThrow<ObjectNotFoundException> {
-                funcionarioService.deletar(2)
+                funcionarioService.atualizar(2, funcionarioAtualizado)
             }
             then("retorna uma excecao ObjectNotFoundException") {
                 response.message shouldBe "Usuario não encontrado"
-                verify { repositoryMock.update(funcionarioAtualizado) }
+                verify { repositoryMock.findById(2) }
             }
         }
 
         `when`("passando um id de funcionario existente para ser retornado") {
-            then("retorna uma excecao ObjectNotFoundException") {
+            then("retorna um funcionario") {
                 val response = funcionarioService.consultar(1)
                 response.id shouldBe 1
                 response.nome shouldBe funcionario.nome
