@@ -1,10 +1,8 @@
 package com.iupp.warriors.services.feedback
 
-import com.iupp.warriors.dtos.requests.FeedbackRequest
 import com.iupp.warriors.dtos.responses.FeedbackResponse
 import com.iupp.warriors.models.Feedback
 import com.iupp.warriors.repositories.FeedbackRepository
-import com.iupp.warriors.repositories.FuncionarioRepository
 import com.iupp.warriors.utils.exceptions.ActionNotPermited
 import com.iupp.warriors.utils.exceptions.ObjectNotFoundException
 import io.micronaut.validation.Validated
