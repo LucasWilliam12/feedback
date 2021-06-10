@@ -3,9 +3,7 @@ package com.iupp.warriors.controllers.funcionario
 import com.iupp.warriors.dtos.requests.FuncionarioRequest
 import com.iupp.warriors.models.Funcionario
 import com.iupp.warriors.services.funcionario.FuncionarioService
-import com.iupp.warriors.services.funcionario.FuncionarioServiceImpl
 import io.micronaut.http.HttpResponse
-import io.micronaut.http.MutableHttpResponse
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.PathVariable
@@ -22,7 +20,7 @@ class AtualizaFuncionarioController {
     lateinit var funcionarioService: FuncionarioService
 
     @Put("/{id}")
-    fun atualizar(@PathVariable id: Long, @Body @Valid request: FuncionarioRequest): MutableHttpResponse<Funcionario> {
+    fun atualizar(@PathVariable id: Long, @Body @Valid request: FuncionarioRequest): HttpResponse<Funcionario> {
 
         val funcionario = funcionarioService.atualizar(id, request.toModel())
 

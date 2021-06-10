@@ -8,7 +8,7 @@ enum class TipoCargo {
     },
     VENDEDOR {
         override fun permitido(): Boolean {
-            return true
+            return false
         }
     };
 
