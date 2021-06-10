@@ -1,6 +1,5 @@
 package com.iupp.warriors.controllers.funcionario
 
-import com.iupp.warriors.dtos.requests.FuncionarioRequest
 import com.iupp.warriors.enums.TipoCargo
 import com.iupp.warriors.models.Funcionario
 import com.iupp.warriors.repositories.FuncionarioRepository
@@ -9,9 +8,10 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.http.HttpStatus
+import io.micronaut.test.annotation.TransactionMode
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 
-@MicronautTest
+@MicronautTest(transactionMode = TransactionMode.SEPARATE_TRANSACTIONS)
 internal class DeletaFuncionarioControllerTest(
     val deletaFuncionarioController: DeletaFuncionarioController,
     val repository: FuncionarioRepository

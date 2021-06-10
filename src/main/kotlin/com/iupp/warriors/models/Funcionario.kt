@@ -39,6 +39,6 @@ data class Funcionario(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
-    val createdAt = LocalDateTime.now()
+    var createdAt = LocalDateTime.now()
 
 }

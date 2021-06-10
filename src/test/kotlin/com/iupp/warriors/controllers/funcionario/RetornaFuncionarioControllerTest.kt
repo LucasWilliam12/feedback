@@ -10,9 +10,10 @@ import io.kotest.core.test.TestCase
 import io.kotest.core.test.TestResult
 import io.kotest.matchers.shouldBe
 import io.micronaut.http.HttpStatus
+import io.micronaut.test.annotation.TransactionMode
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 
-@MicronautTest
+@MicronautTest(transactionMode = TransactionMode.SEPARATE_TRANSACTIONS)
 internal class RetornaFuncionarioControllerTest(
     val retornaFuncionarioController: RetornaFuncionarioController,
     val repository: FuncionarioRepository

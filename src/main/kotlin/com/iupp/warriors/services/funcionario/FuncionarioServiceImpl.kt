@@ -1,4 +1,4 @@
-package com.iupp.warriors.services
+package com.iupp.warriors.services.funcionario
 
 import com.iupp.warriors.dtos.responses.FuncionarioResponse
 import com.iupp.warriors.models.Funcionario
@@ -12,37 +12,34 @@ import javax.validation.Valid
 
 @Validated
 @Singleton
-class FuncionarioService {
-
-    @Inject
-    lateinit var funcionarioRepository: FuncionarioRepository
+class FuncionarioServiceImpl(@Inject val funcionarioRepository: FuncionarioRepository): FuncionarioService {
 
     @Transactional
-    fun cadastrar(@Valid request: Funcionario): Funcionario{
+    override fun cadastrar(@Valid request: Funcionario): Funcionario{
         return funcionarioRepository.save(request)
     }
 
     @Transactional
-    fun consultar(id: Long): Funcionario {
+    override fun consultar(id: Long): Funcionario {
         return funcionarioRepository.findById(id)
             .orElseThrow { ObjectNotFoundException("Usuario não encontrado") }
     }
 
     @Transactional
-    fun listar(): List<FuncionarioResponse> {
+    override fun listar(): List<FuncionarioResponse> {
         return funcionarioRepository.findAll().map {
             FuncionarioResponse(it)
         }
     }
 
     @Transactional
-    fun deletar(id: Long) {
+    override fun deletar(id: Long) {
         val funcionario = this.consultar(id)
         funcionarioRepository.delete(funcionario)
     }
 
     @Transactional
-    fun atualizar(id: Long, request: Funcionario): Funcionario {
+    override fun atualizar(id: Long, request: Funcionario): Funcionario {
         val funcionario = this.consultar(id)
         funcionario.atualiza(request)
         return funcionarioRepository.update(funcionario)

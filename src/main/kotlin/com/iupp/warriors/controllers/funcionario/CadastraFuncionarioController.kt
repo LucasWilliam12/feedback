@@ -1,7 +1,8 @@
 package com.iupp.warriors.controllers.funcionario
 
 import com.iupp.warriors.dtos.requests.FuncionarioRequest
-import com.iupp.warriors.services.FuncionarioService
+import com.iupp.warriors.services.funcionario.FuncionarioService
+import com.iupp.warriors.services.funcionario.FuncionarioServiceImpl
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller

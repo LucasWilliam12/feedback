@@ -7,9 +7,10 @@ import com.iupp.warriors.repositories.FuncionarioRepository
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.http.HttpStatus
+import io.micronaut.test.annotation.TransactionMode
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 
-@MicronautTest
+@MicronautTest(transactionMode = TransactionMode.SEPARATE_TRANSACTIONS)
 internal class AtualizaFuncionarioControllerTest(
     val atualizaFuncionarioController: AtualizaFuncionarioController,
     val repository: FuncionarioRepository
@@ -36,6 +37,7 @@ internal class AtualizaFuncionarioControllerTest(
                 with(result){
                     status shouldBe HttpStatus.OK
                     body.get().nome shouldBe "Usuario Teste Editado"
+                    body.get().email shouldBe "usuarioteste@hotmail.com"
                     body.get().cargo shouldBe TipoCargo.VENDEDOR
                 }
             }
