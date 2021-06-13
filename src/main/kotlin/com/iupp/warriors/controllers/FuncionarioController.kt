@@ -42,7 +42,7 @@ class FuncionarioController(private var funcionarioService: FuncionarioService) 
     }
 
     @Get("/{id}")
-    fun consultar(@PathVariable id: Long): HttpResponse<Any>{
+    fun consultar(@PathVariable id: Long): HttpResponse<FuncionarioResponse>{
         val funcionario = funcionarioService.consultar(id)
 
         return HttpResponse.ok(FuncionarioResponse(funcionario))
