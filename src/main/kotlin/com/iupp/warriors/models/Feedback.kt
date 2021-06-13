@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Introspected
-class Feedback(
+data class Feedback(
     @field:NotNull
     @field:NotEmpty
     var descricao: String,
@@ -23,7 +23,11 @@ class Feedback(
     @field:NotNull
     @ManyToOne(optional = false)
     @JoinColumn(name = "avaliador_id")
-    var avaliador: Funcionario
+    var avaliador: Funcionario,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
+    var createdAt: LocalDateTime = LocalDateTime.now()
 ) {
 
     fun atualiza(@Valid request: Feedback) {
@@ -32,10 +36,5 @@ class Feedback(
         this.avaliado = request.avaliado
         this.avaliador = request.avaliador
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
-    var createdAt = LocalDateTime.now()
 
 }

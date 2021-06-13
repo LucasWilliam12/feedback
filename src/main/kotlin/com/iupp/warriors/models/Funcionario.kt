@@ -24,7 +24,11 @@ data class Funcionario(
     @field:CPF
     var cpf: String,
     @field:NotNull
-    var cargo: TipoCargo
+    var cargo: TipoCargo,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
+    var createdAt: LocalDateTime = LocalDateTime.now()
 ){
     fun atualiza(request: Funcionario) {
         this.nome = request.nome
@@ -32,10 +36,5 @@ data class Funcionario(
         this.cpf = request.cpf
         this.cargo = request.cargo
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null
-    var createdAt = LocalDateTime.now()
 
 }
