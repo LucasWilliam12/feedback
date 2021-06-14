@@ -11,6 +11,7 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 
 @MicronautTest
 internal class FuncionarioControllerTest: AnnotationSpec(){
@@ -18,26 +19,28 @@ internal class FuncionarioControllerTest: AnnotationSpec(){
     val funcionarioService = mockk<FuncionarioService>()
     val funcionarioController = FuncionarioController(funcionarioService)
 
-    val vendedor = Funcionario(
-        "Vendedor Teste",
-        "vendedor@email.com",
-        "34059045012",
-        TipoCargo.VENDEDOR
-    )
+    companion object{
+        val vendedor = Funcionario(
+            "Vendedor Teste",
+            "vendedor@email.com",
+            "34059045012",
+            TipoCargo.VENDEDOR
+        )
 
-    val gerente = Funcionario(
-        "Gerente Teste",
-        "gerente@email.com",
-        "34059045012",
-        TipoCargo.GERENTE
-    )
+        val gerente = Funcionario(
+            "Gerente Teste",
+            "gerente@email.com",
+            "34059045012",
+            TipoCargo.GERENTE
+        )
 
-    val vendedorAtualizado = Funcionario(
-        "Vendedor Teste Atualizado",
-        "vendedoratualizado@email.com",
-        "34059045012",
-        TipoCargo.VENDEDOR
-    )
+        val vendedorAtualizado = Funcionario(
+            "Vendedor Teste Atualizado",
+            "vendedoratualizado@email.com",
+            "34059045012",
+            TipoCargo.VENDEDOR
+        )
+    }
 
     @Test
     fun `deve cadastrar um novo funcionario quando os dados passados forem validos`(){
@@ -57,6 +60,7 @@ internal class FuncionarioControllerTest: AnnotationSpec(){
         with(response){
             status shouldBe HttpStatus.CREATED
             headers.get("location") shouldBe "/funcionarios/1"
+            verify { funcionarioService.cadastrar(any()) }
         }
     }
 
@@ -82,6 +86,7 @@ internal class FuncionarioControllerTest: AnnotationSpec(){
                 status shouldBe HttpStatus.OK
                 it.nome shouldBe vendedorAtualizado.nome
                 it.email shouldBe vendedorAtualizado.email
+                verify { funcionarioService.atualizar(1, any()) }
             }
         }
     }
@@ -98,6 +103,7 @@ internal class FuncionarioControllerTest: AnnotationSpec(){
         with(response){
             status shouldBe HttpStatus.OK
             body.isEmpty shouldBe true
+            verify { funcionarioService.deletar(1) }
         }
     }
 
@@ -117,6 +123,7 @@ internal class FuncionarioControllerTest: AnnotationSpec(){
                 it.nome shouldBe vendedor.nome
                 it.email shouldBe vendedor.email
                 it.cargo shouldBe vendedor.cargo
+                verify { funcionarioService.consultar(1) }
             }
         }
     }
@@ -133,6 +140,7 @@ internal class FuncionarioControllerTest: AnnotationSpec(){
         with(response){
             status shouldBe HttpStatus.OK
             body()!!.size shouldBe 2
+            verify { funcionarioService.listar() }
         }
     }
 }

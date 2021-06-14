@@ -14,6 +14,7 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import java.util.*
 
 @MicronautTest
@@ -76,6 +77,9 @@ class FeedbackControllerTest(): AnnotationSpec() {
         with(response){
             status shouldBe HttpStatus.CREATED
             headers.get("location") shouldBe "/feedbacks/1"
+            verify { feedbackService.cadastrar(any()) }
+            verify { funcionarioRepository.findById(1) }
+            verify { funcionarioRepository.findById(2) }
         }
     }
 
@@ -92,6 +96,7 @@ class FeedbackControllerTest(): AnnotationSpec() {
             status shouldBe HttpStatus.OK
             body.isPresent shouldBe true
             body()!!.titulo shouldBe feedback.titulo
+            verify { feedbackService.consultar(1) }
         }
 
     }
@@ -106,6 +111,7 @@ class FeedbackControllerTest(): AnnotationSpec() {
         with(response){
             status shouldBe HttpStatus.OK
             body()!!.size shouldBe 2
+            verify { feedbackService.listar() }
         }
     }
 
@@ -118,6 +124,7 @@ class FeedbackControllerTest(): AnnotationSpec() {
         val response = feedbackController.deletar(1)
         with(response){
             status shouldBe HttpStatus.OK
+            verify { feedbackService.deletar(1) }
         }
     }
 
@@ -145,6 +152,9 @@ class FeedbackControllerTest(): AnnotationSpec() {
                 it.descricao shouldBe feedbackAtualizado.descricao
                 it.avaliado shouldBe FuncionarioResponse(avaliado)
                 it.avaliador shouldBe FuncionarioResponse(avaliador)
+                verify { feedbackService.atualizar(1, any()) }
+                verify { funcionarioRepository.findById(1) }
+                verify { funcionarioRepository.findById(2) }
             }
 
         }
