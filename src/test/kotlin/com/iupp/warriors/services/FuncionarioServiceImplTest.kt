@@ -14,7 +14,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import java.time.LocalDateTime
 import java.util.*
-import com.iupp.warriors.utils.exceptions.ObjectNotFoundException
+import com.iupp.warriors.controllers.handler.exceptions.ObjectNotFoundException
 
 @MicronautTest
 internal class FuncionarioServiceImplTest: AnnotationSpec(){

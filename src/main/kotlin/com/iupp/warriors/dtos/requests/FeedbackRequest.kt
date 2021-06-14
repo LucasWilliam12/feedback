@@ -2,7 +2,7 @@ package com.iupp.warriors.dtos.requests
 
 import com.iupp.warriors.models.Feedback
 import com.iupp.warriors.repositories.FuncionarioRepository
-import com.iupp.warriors.utils.exceptions.ObjectNotFoundException
+import com.iupp.warriors.controllers.handler.exceptions.ObjectNotFoundException
 import io.micronaut.core.annotation.Introspected
 import javax.validation.Valid
 import javax.validation.constraints.NotBlank

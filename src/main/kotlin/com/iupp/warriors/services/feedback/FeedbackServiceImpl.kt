@@ -3,8 +3,8 @@ package com.iupp.warriors.services.feedback
 import com.iupp.warriors.dtos.responses.FeedbackResponse
 import com.iupp.warriors.models.Feedback
 import com.iupp.warriors.repositories.FeedbackRepository
-import com.iupp.warriors.utils.exceptions.ActionNotPermited
-import com.iupp.warriors.utils.exceptions.ObjectNotFoundException
+import com.iupp.warriors.controllers.handler.exceptions.ActionNotPermited
+import com.iupp.warriors.controllers.handler.exceptions.ObjectNotFoundException
 import io.micronaut.validation.Validated
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -28,7 +28,7 @@ class FeedbackServiceImpl(
 
     @Transactional
     override fun consultar(id: Long): Feedback {
-        return feedbackRepository.findById(id).orElseThrow{ObjectNotFoundException("Feedback não encontrado com o id informado")}
+        return feedbackRepository.findById(id).orElseThrow{ ObjectNotFoundException("Feedback não encontrado com o id informado") }
     }
 
     @Transactional

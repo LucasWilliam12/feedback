@@ -1,4 +1,4 @@
-package com.iupp.warriors.utils.exceptions
+package com.iupp.warriors.controllers.handler.exceptions
 
 import java.lang.RuntimeException
 

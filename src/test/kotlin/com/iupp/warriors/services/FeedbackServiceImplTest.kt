@@ -5,8 +5,8 @@ import com.iupp.warriors.models.Feedback
 import com.iupp.warriors.models.Funcionario
 import com.iupp.warriors.repositories.FeedbackRepository
 import com.iupp.warriors.services.feedback.FeedbackServiceImpl
-import com.iupp.warriors.utils.exceptions.ActionNotPermited
-import com.iupp.warriors.utils.exceptions.ObjectNotFoundException
+import com.iupp.warriors.controllers.handler.exceptions.ActionNotPermited
+import com.iupp.warriors.controllers.handler.exceptions.ObjectNotFoundException
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe

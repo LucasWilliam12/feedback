@@ -3,7 +3,7 @@ package com.iupp.warriors.services.funcionario
 import com.iupp.warriors.dtos.responses.FuncionarioResponse
 import com.iupp.warriors.models.Funcionario
 import com.iupp.warriors.repositories.FuncionarioRepository
-import com.iupp.warriors.utils.exceptions.ObjectNotFoundException
+import com.iupp.warriors.controllers.handler.exceptions.ObjectNotFoundException
 import io.micronaut.validation.Validated
 import javax.inject.Inject
 import javax.inject.Singleton
