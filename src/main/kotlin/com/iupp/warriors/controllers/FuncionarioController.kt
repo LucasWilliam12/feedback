@@ -1,5 +1,6 @@
 package com.iupp.warriors.controllers
 
+import com.iupp.warriors.controllers.handler.HandlerException
 import com.iupp.warriors.dtos.requests.FuncionarioRequest
 import com.iupp.warriors.dtos.responses.FuncionarioResponse
 import com.iupp.warriors.models.Funcionario
@@ -11,6 +12,7 @@ import io.micronaut.validation.Validated
 import javax.transaction.Transactional
 import javax.validation.Valid
 
+@HandlerException
 @Validated
 @Controller("/funcionarios")
 class FuncionarioController(private var funcionarioService: FuncionarioService) {

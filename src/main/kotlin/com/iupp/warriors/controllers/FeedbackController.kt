@@ -1,5 +1,6 @@
 package com.iupp.warriors.controllers
 
+import com.iupp.warriors.controllers.handler.HandlerException
 import com.iupp.warriors.dtos.requests.FeedbackRequest
 import com.iupp.warriors.dtos.responses.FeedbackResponse
 import com.iupp.warriors.models.Feedback
@@ -11,6 +12,7 @@ import io.micronaut.http.uri.UriBuilder
 import io.micronaut.validation.Validated
 import javax.validation.Valid
 
+@HandlerException
 @Controller("/feedbacks")
 @Validated
 class FeedbackController(
