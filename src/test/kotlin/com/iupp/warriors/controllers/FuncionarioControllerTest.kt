@@ -4,7 +4,6 @@ import com.iupp.warriors.dtos.requests.FuncionarioRequest
 import com.iupp.warriors.dtos.responses.FuncionarioResponse
 import com.iupp.warriors.enums.TipoCargo
 import com.iupp.warriors.models.Funcionario
-import com.iupp.warriors.services.funcionario.FuncionarioService
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.http.HttpStatus

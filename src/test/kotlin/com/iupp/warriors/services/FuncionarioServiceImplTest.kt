@@ -2,12 +2,9 @@ package com.iupp.warriors.services
 
 import com.iupp.warriors.enums.TipoCargo
 import com.iupp.warriors.models.Funcionario
-import com.iupp.warriors.repositories.FuncionarioRepository
-import com.iupp.warriors.services.funcionario.FuncionarioServiceImpl
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk

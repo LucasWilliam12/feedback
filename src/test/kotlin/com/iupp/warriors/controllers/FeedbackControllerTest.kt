@@ -2,19 +2,12 @@ package com.iupp.warriors.controllers
 
 import com.iupp.warriors.dtos.requests.FeedbackRequest
 import com.iupp.warriors.dtos.responses.FeedbackResponse
-import com.iupp.warriors.dtos.responses.FuncionarioResponse
 import com.iupp.warriors.enums.TipoCargo
-import com.iupp.warriors.models.Feedback
 import com.iupp.warriors.models.Funcionario
-import com.iupp.warriors.repositories.FuncionarioRepository
-import com.iupp.warriors.services.feedback.FeedbackService
 import io.kotest.core.spec.style.AnnotationSpec
-import io.kotest.matchers.shouldBe
-import io.micronaut.http.HttpStatus
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import java.util.*
 
 @MicronautTest
