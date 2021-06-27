@@ -19,3 +19,8 @@ cassandra:
       session-keyspace: feedbackkeyspace
       load-balancing-policy:
         local-datacenter: datacenter1
+
+nats:
+  addresses: ${nats_host:localhost}
+  username: ${nats_username:guest}
+  password: ${nats_password:guest}
