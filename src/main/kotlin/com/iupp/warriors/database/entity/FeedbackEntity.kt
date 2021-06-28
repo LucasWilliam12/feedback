@@ -6,8 +6,8 @@ import java.util.*
 
 @Introspected
 data class FeedbackEntity (
-    var descricao: String,
-    var titulo: String,
+    var descricao: String? = null,
+    var titulo: String? = null,
     var id: UUID? = null,
     var createdAt: LocalDateTime? = LocalDateTime.now()
 )

@@ -7,4 +7,6 @@ import javax.inject.Singleton
 @Singleton
 interface FeedbackEntityServicePort {
     fun save(feedbackEntity: FeedbackEntity): Feedback
+    fun update(feedbackEntity: FeedbackEntity): Feedback
+    fun delete(feedbackEntity: FeedbackEntity)
 }

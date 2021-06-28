@@ -13,4 +13,13 @@ class FeedbackService(private val service: FeedbackEntityServicePort): FeedbackS
         val response = service.save(FeedbackConverter.feedbackToFeedbackEntity(feedback))
         return FeedbackConverter.feedbackToFeedbackEvent(response);
     }
+
+    override fun update(feedback: Feedback): FeedbackEvent {
+        val response = service.update(FeedbackConverter.feedbackToFeedbackEntity(feedback));
+        return FeedbackConverter.feedbackToFeedbackEvent(response)
+    }
+
+    override fun delete(feedback: Feedback) {
+        service.delete(FeedbackConverter.feedbackToFeedbackEntity(feedback))
+    }
 }

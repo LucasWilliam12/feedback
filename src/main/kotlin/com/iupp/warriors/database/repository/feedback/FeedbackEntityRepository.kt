@@ -6,4 +6,6 @@ import javax.inject.Singleton
 @Singleton
 interface FeedbackEntityRepository {
     fun saveCql(feedbackEntity: FeedbackEntity): FeedbackEntity
+    fun updateCql(feedbackEntity: FeedbackEntity): FeedbackEntity
+    fun deleteCql(feedbackEntity: FeedbackEntity)
 }

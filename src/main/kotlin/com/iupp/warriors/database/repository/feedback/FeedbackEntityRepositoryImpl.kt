@@ -28,4 +28,26 @@ class FeedbackEntityRepositoryImpl(private val cqlSession: CqlSession): Feedback
         feedbackEntity.id = uuid
         return feedbackEntity
     }
+
+    override fun updateCql(feedbackEntity: FeedbackEntity): FeedbackEntity {
+        logger.info("Atualizando feedback no banco de dados Scylla: $feedbackEntity")
+        cqlSession.execute(
+            SimpleStatement.newInstance("UPDATE feedbackkeyspace.Feedbacks SET descricao = ?, titulo = ? WHERE id = ? IF EXISTS",
+                feedbackEntity.descricao,
+                feedbackEntity.titulo,
+                feedbackEntity.id
+            )
+        )
+
+        return feedbackEntity
+    }
+
+    override fun deleteCql(feedbackEntity: FeedbackEntity) {
+        logger.info("Deletando feedback no banco de dados Scylla: $feedbackEntity")
+        cqlSession.execute(
+            SimpleStatement.newInstance("DELETE FROM feedbackkeyspace.Feedbacks WHERE id = ? IF EXISTS",
+                feedbackEntity.id
+            )
+        )
+    }
 }

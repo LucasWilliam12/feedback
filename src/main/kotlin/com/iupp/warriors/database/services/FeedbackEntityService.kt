@@ -17,4 +17,15 @@ class FeedbackEntityService(private val feedbackEntityRepository: FeedbackEntity
         return FeedbackConverter.feedbackEntityToFeedback(feedbackEntityResult)
     }
 
+    override fun update(feedbackEntity: FeedbackEntity): Feedback {
+        logger.info("Recebendo um feedback para ser entregue ao repository para ser atualizado.")
+        val feedbackEntityResult = feedbackEntityRepository.updateCql(feedbackEntity)
+        return FeedbackConverter.feedbackEntityToFeedback(feedbackEntityResult)
+    }
+
+    override fun delete(feedbackEntity: FeedbackEntity) {
+        logger.info("Recebendo um feedback para ser entregue ao repository para ser deletado.")
+        feedbackEntityRepository.deleteCql(feedbackEntity)
+    }
+
 }
