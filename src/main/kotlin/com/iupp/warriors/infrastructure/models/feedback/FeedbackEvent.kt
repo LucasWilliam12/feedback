@@ -1,4 +1,4 @@
-package com.iupp.warriors.infrastracture.models.feedback
+package com.iupp.warriors.infrastructure.models.feedback
 
 import java.time.LocalDateTime
 import java.util.*

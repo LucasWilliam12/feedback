@@ -4,7 +4,7 @@ import com.iupp.warriors.core.mappers.FeedbackConverter
 import com.iupp.warriors.core.models.Feedback
 import com.iupp.warriors.core.ports.FeedbackEntityServicePort
 import com.iupp.warriors.core.ports.FeedbackServicePort
-import com.iupp.warriors.infrastracture.models.feedback.FeedbackEvent
+import com.iupp.warriors.infrastructure.models.feedback.FeedbackEvent
 import javax.inject.Singleton
 
 @Singleton
