@@ -1,11 +1,12 @@
-package com.iupp.warriors.database.services
+package com.iupp.warriors.database.service
 
-import com.iupp.warriors.core.mappers.FeedbackConverter
-import com.iupp.warriors.core.models.Feedback
+import com.iupp.warriors.core.mapper.FeedbackConverter
+import com.iupp.warriors.core.model.Feedback
 import com.iupp.warriors.core.ports.FeedbackEntityServicePort
 import com.iupp.warriors.database.entity.FeedbackEntity
 import com.iupp.warriors.database.repository.feedback.FeedbackEntityRepository
 import org.slf4j.LoggerFactory
+import java.util.*
 import javax.inject.Singleton
 
 @Singleton
@@ -23,9 +24,9 @@ class FeedbackEntityService(private val feedbackEntityRepository: FeedbackEntity
         return FeedbackConverter.feedbackEntityToFeedback(feedbackEntityResult)
     }
 
-    override fun delete(feedbackEntity: FeedbackEntity) {
+    override fun delete(id: UUID) {
         logger.info("Recebendo um feedback para ser entregue ao repository para ser deletado.")
-        feedbackEntityRepository.deleteCql(feedbackEntity)
+        feedbackEntityRepository.deleteCql(id)
     }
 
 }

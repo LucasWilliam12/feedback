@@ -1,6 +1,6 @@
-package com.iupp.warriors.infrastructure.subscribers
+package com.iupp.warriors.infrastructure.subscriber
 
-import com.iupp.warriors.core.mappers.FeedbackConverter
+import com.iupp.warriors.core.mapper.FeedbackConverter
 import com.iupp.warriors.core.ports.FeedbackServicePort
 import com.iupp.warriors.infrastructure.models.Events
 import com.iupp.warriors.infrastructure.models.feedback.EventsInformation
@@ -28,7 +28,7 @@ class FeedbackServer(private val service: FeedbackServicePort) {
 
         if(events.event.name == Events.DELETE_PRODUCT.name){
             logger.info("Recebendo informações de um feedback para ser deletado: ${events.feedbackEvent}")
-            val response = service.delete(FeedbackConverter.feedbackEventDtoToFeedback(events.feedbackEvent))
+            val response = service.delete(events.feedbackEvent.id!!)
             logger.info("Feedback deletado do banco")
         }
     }

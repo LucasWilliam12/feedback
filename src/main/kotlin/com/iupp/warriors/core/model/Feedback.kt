@@ -1,4 +1,4 @@
-package com.iupp.warriors.core.models
+package com.iupp.warriors.core.model
 
 import java.time.LocalDateTime
 import java.util.*

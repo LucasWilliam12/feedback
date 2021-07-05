@@ -42,11 +42,11 @@ class FeedbackEntityRepositoryImpl(private val cqlSession: CqlSession): Feedback
         return feedbackEntity
     }
 
-    override fun deleteCql(feedbackEntity: FeedbackEntity) {
-        logger.info("Deletando feedback no banco de dados Scylla: $feedbackEntity")
+    override fun deleteCql(id: UUID) {
+        logger.info("Deletando feedback no banco de dados Scylla: $id")
         cqlSession.execute(
             SimpleStatement.newInstance("DELETE FROM feedbackkeyspace.Feedbacks WHERE id = ? IF EXISTS",
-                feedbackEntity.id
+                id
             )
         )
     }

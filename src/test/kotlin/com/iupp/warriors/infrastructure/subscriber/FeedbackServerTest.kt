@@ -1,4 +1,4 @@
-package com.iupp.warriors.infrastructure.subscribers
+package com.iupp.warriors.infrastructure.subscriber
 
 import com.iupp.warriors.core.ports.FeedbackServicePort
 import com.iupp.warriors.infrastructure.models.Events
@@ -9,6 +9,7 @@ import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk
+import org.hibernate.engine.jdbc.spi.ResultSetReturn
 import java.time.LocalDateTime
 import java.util.*
 

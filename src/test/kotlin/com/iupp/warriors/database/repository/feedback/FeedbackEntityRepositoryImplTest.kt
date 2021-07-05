@@ -61,13 +61,13 @@ internal class FeedbackEntityRepositoryImplTest: AnnotationSpec(){
 
     @Test
     fun `Deve deletar um feedback`(){
-        val feedbackEntity = FeedbackEntity(id = UUID.randomUUID())
+        val id = UUID.randomUUID()
         cqlSession.execute(
             SimpleStatement.newInstance("DELETE FROM feedbackkeyspace.Feedbacks WHERE id = ? IF EXISTS",
-                feedbackEntity.id
+                id
             )
         )
-        val response = entityRepository.deleteCql(feedbackEntity)
+        val response = entityRepository.deleteCql(id)
         response shouldBe Unit
     }
 

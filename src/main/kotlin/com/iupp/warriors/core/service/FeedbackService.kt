@@ -1,10 +1,11 @@
-package com.iupp.warriors.core.services
+package com.iupp.warriors.core.service
 
-import com.iupp.warriors.core.mappers.FeedbackConverter
-import com.iupp.warriors.core.models.Feedback
+import com.iupp.warriors.core.mapper.FeedbackConverter
+import com.iupp.warriors.core.model.Feedback
 import com.iupp.warriors.core.ports.FeedbackEntityServicePort
 import com.iupp.warriors.core.ports.FeedbackServicePort
 import com.iupp.warriors.infrastructure.models.feedback.FeedbackEvent
+import java.util.*
 import javax.inject.Singleton
 
 @Singleton
@@ -19,7 +20,7 @@ class FeedbackService(private val service: FeedbackEntityServicePort): FeedbackS
         return FeedbackConverter.feedbackToFeedbackEvent(response)
     }
 
-    override fun delete(feedback: Feedback) {
-        service.delete(FeedbackConverter.feedbackToFeedbackEntity(feedback))
+    override fun delete(id: UUID) {
+        service.delete(id)
     }
 }

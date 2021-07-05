@@ -1,7 +1,7 @@
-package com.iupp.warriors.core.services
+package com.iupp.warriors.core.service
 
-import com.iupp.warriors.core.mappers.FeedbackConverter
-import com.iupp.warriors.core.models.Feedback
+import com.iupp.warriors.core.mapper.FeedbackConverter
+import com.iupp.warriors.core.model.Feedback
 import com.iupp.warriors.core.ports.FeedbackEntityServicePort
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
@@ -45,10 +45,10 @@ internal class FeedbackServiceTest: AnnotationSpec(){
 
     @Test
     fun `deve deletar um feedback`(){
-        val feedback = Feedback(id = UUID.randomUUID())
+        val id = UUID.randomUUID()
         every { entityService.delete(any()) } returns Unit
 
-        val response = service.delete(feedback)
+        val response = service.delete(id)
         response shouldBe Unit
     }
 }
