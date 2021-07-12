@@ -2,8 +2,8 @@ package com.iupp.warriors.infrastructure.subscriber
 
 import com.iupp.warriors.core.mapper.FeedbackConverter
 import com.iupp.warriors.core.ports.FeedbackServicePort
-import com.iupp.warriors.infrastructure.models.Events
-import com.iupp.warriors.infrastructure.models.feedback.EventsInformation
+import com.iupp.warriors.infrastructure.model.Events
+import com.iupp.warriors.infrastructure.model.feedback.EventsInformation
 import io.micronaut.nats.annotation.NatsListener
 import io.micronaut.nats.annotation.Subject
 import org.slf4j.LoggerFactory

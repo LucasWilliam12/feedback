@@ -1,16 +1,14 @@
 package com.iupp.warriors.infrastructure.subscriber
 
 import com.iupp.warriors.core.ports.FeedbackServicePort
-import com.iupp.warriors.infrastructure.models.Events
-import com.iupp.warriors.infrastructure.models.feedback.EventsInformation
-import com.iupp.warriors.infrastructure.models.feedback.FeedbackEvent
+import com.iupp.warriors.infrastructure.model.Events
+import com.iupp.warriors.infrastructure.model.feedback.EventsInformation
+import com.iupp.warriors.infrastructure.model.feedback.FeedbackEvent
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.every
 import io.mockk.mockk
-import org.hibernate.engine.jdbc.spi.ResultSetReturn
-import java.time.LocalDateTime
 import java.util.*
 
 @MicronautTest

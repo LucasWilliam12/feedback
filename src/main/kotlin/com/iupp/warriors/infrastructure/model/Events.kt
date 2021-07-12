@@ -1,4 +1,4 @@
-package com.iupp.warriors.infrastructure.models
+package com.iupp.warriors.infrastructure.model
 
 enum class Events {
     SAVE_PRODUCT,

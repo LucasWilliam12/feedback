@@ -1,7 +1,7 @@
 package com.iupp.warriors.core.ports
 
 import com.iupp.warriors.core.model.Feedback
-import com.iupp.warriors.infrastructure.models.feedback.FeedbackEvent
+import com.iupp.warriors.infrastructure.model.feedback.FeedbackEvent
 import java.util.*
 import javax.inject.Singleton
 

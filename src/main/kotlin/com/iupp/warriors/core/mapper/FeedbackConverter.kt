@@ -2,7 +2,7 @@ package com.iupp.warriors.core.mapper
 
 import com.iupp.warriors.core.model.Feedback
 import com.iupp.warriors.database.entity.FeedbackEntity
-import com.iupp.warriors.infrastructure.models.feedback.FeedbackEvent
+import com.iupp.warriors.infrastructure.model.feedback.FeedbackEvent
 
 class FeedbackConverter {
     companion object{
